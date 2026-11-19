@@ -24,6 +24,19 @@ st.sidebar.header("Profil pendaki")
 awal = st.query_params.get("profil", "Umum")
 profil = st.sidebar.selectbox("Pilih profil", list(PROFIL),
                               index=list(PROFIL).index(awal) if awal in PROFIL else 0)
+
+st.sidebar.divider()
+st.sidebar.subheader("Tentang aplikasi")
+st.sidebar.markdown(
+    "Dibuat untuk memenuhi **Tugas 8** mata kuliah **Kecerdasan Buatan (AI)**.\n\n"
+    "Dibangun menggunakan **Python** (Streamlit) dengan algoritma **Weighted Product**.\n\n"
+    "**Kelompok 6 AI:**\n"
+    "- Fabricio B. I. Gerung\n"
+    "- Jeshua L. S. Umpel\n"
+    "- Gwenzy N. Rahim\n\n"
+    "Teknik Informatika, Politeknik Negeri Manado, 2026"
+)
+
 st.subheader("1. Kriteria dan bobot")
 kriteria_df = st.data_editor(
     pd.DataFrame({"Kriteria": KRITERIA, "Jenis": JENIS, "Bobot": PROFIL[profil]}),
